@@ -6,4 +6,4 @@
 
 ## How to use the models
 
-`allennlp predict [model_dir]/model.tar.gz [data_file_path].json --predictor [predictor_registered_name]
+`allennlp predict [model_dir]/model.tar.gz [data_file_path].json --predictor [predictor_registered_name]`
