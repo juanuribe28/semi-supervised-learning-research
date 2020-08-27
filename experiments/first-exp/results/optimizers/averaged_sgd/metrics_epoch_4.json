@@ -1,0 +1,18 @@
+{
+  "best_epoch": 4,
+  "peak_worker_0_memory_MB": 0,
+  "training_duration": "0:00:04.003748",
+  "training_start_epoch": 0,
+  "training_epochs": 4,
+  "epoch": 4,
+  "training_accuracy": 0.18166666666666667,
+  "training_loss": 4.224150594075521,
+  "training_reg_loss": 0.0,
+  "training_worker_0_memory_MB": 0.0,
+  "validation_accuracy": 0.21666666666666667,
+  "validation_loss": 4.217097784343519,
+  "validation_reg_loss": 0.0,
+  "best_validation_accuracy": 0.21666666666666667,
+  "best_validation_loss": 4.217097784343519,
+  "best_validation_reg_loss": 0.0
+}
