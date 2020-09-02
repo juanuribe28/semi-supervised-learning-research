@@ -18,4 +18,3 @@ class ExerciseClassifierPredictor(Predictor):
         max_prob = max(outputs['probs'])
         return [(self._model.vocab.get_token_from_index(label_id, 'labels'), prob)
                 for label_id, prob in enumerate(outputs['probs']) if prob == max_prob]
-    
