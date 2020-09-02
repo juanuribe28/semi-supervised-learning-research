@@ -3,13 +3,11 @@
         "type": "tsv-reader",
         "token_indexers": {
             "tokens": {
-                "type": "pretrained_transformer",
-                "model_name": "bert-base-uncased"
+                "type": "elmo_characters"
             }
         },
         "tokenizer": {
-            "type": "pretrained_transformer",
-            "model_name": "bert-base-uncased"
+            "type": "whitespace"
         }
     },
     "model": {
@@ -17,20 +15,19 @@
         "embedder": {
             "token_embedders": {
                 "tokens": {
-                    "type": "pretrained_transformer",
-                    "model_name": "bert-base-uncased"
+                    "type": "elmo_token_embedder"
                 }
             }
         },
         "encoder": {
-            "type": "bert_pooler",
-            "pretrained_model": "bert-base-uncased"
+            "type": "boe",
+            "embedding_dim": 1024
         }
     },
     "train_data_path": "./data/train_data.tsv",
     "validation_data_path": "./data/test_data.tsv",
     "trainer": {
-        "cuda_device": -1,
+        "cuda_device": 0,
         "num_epochs": 100,
         "optimizer": "adam",
         "patience": 10
