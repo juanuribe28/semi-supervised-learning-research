@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+experiments/first-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_13.th
+experiments/first-exp/results/embedder/word-tokens/elmo_characters/best.th
+experiments/first-exp/results/embedder/word-tokens/elmo_characters/model.tar.gz
+experiments/first-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_14.th
+experiments/first-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_9.th
+experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_9.th
+experiments/first-exp/results/embedder/wordpiece-tokens/bert/best.th
+experiments/first-exp/results/embedder/wordpiece-tokens/bert/model.tar.gz
+experiments/first-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_10.th
+experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_10.th
