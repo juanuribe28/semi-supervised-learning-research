@@ -29,9 +29,7 @@ class Net(Model):
                 text: Dict[str, torch.Tensor], 
                 label: torch.Tensor = None) -> Dict[str, torch.Tensor]:
         # Shape: (batch_size, num_tokens, embedding_dim)
-        print('\nIn shape:  {}'.format(self.embedder.get_input_dim()))
         embedded_text = self.embedder(text)
-        print('\nOut shape: {}'.format(embedded_text.size()))
         # Shape: (batch_size, num_tokens)
         mask = get_text_field_mask(text)
         # Shape: (batch_size, encoding_dim)
