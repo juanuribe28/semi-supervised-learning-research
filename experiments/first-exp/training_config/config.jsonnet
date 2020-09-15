@@ -1,4 +1,14 @@
-local embedding_dim = 64;
+local cuda_device = -1;
+local num_epochs = 100;
+local patience = 10;
+local batch_size = 64;
+local shuffle_data = true;
+local train_data_path = './data/train_data.tsv';
+local validation_data_path = './data/test_data.tsv';
+
+// Hyperparameters
+local embedding_dim = std.parseInt(std.extVar('embedding_dim'));  // 64
+local lr = std.parseJson(std.extVar('lr'));  // 0.001 or 1e-3
 
 {
     dataset_reader: {
@@ -23,23 +33,23 @@ local embedding_dim = 64;
             },
         },
         encoder: {
-            type: 'boe',  # WINNER
+            type: 'boe',
             embedding_dim: embedding_dim,
         },
     },
-    train_data_path: './data/train_data.tsv',
-    validation_data_path: './data/test_data.tsv',
+    train_data_path: train_data_path,
+    validation_data_path: validation_data_path,
     trainer: {
-        cuda_device: -1,
-        num_epochs: 100,
+        cuda_device: cuda_device,
+        num_epochs: num_epochs,
         optimizer: {
-            type: 'adamax',  # WINNER
+            type: 'adamw',
+            lr: lr,
         },
-        patience: 10,
+        patience: patience,
     },
     data_loader: {
-        batch_size: 32,
-        shuffle: false,
-        sampler: 'random',
+        batch_size: batch_size,
+        shuffle: shuffle_data,
     },
 }
