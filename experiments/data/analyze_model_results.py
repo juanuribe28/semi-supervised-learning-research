@@ -5,6 +5,7 @@ import pandas as pd
 from pandas import DataFrame
 
 if __name__ == '__main__':
+    
     model_path = './results/base/model.tar.gz'
     predictor = Predictor.from_path(model_path, predictor_name='exercise_classifier')
 
@@ -23,7 +24,7 @@ if __name__ == '__main__':
         data_path = './data/new_{}_data.tsv'.format(data_name)
         data_df = pd.read_csv(data_path, sep='\t', header=None)
         for _, data_row in data_df.iterrows():
-            sent, label = [x.lower() for x in data_row]
+            sent, label = [x for x in data_row]
             results_row = results_df.loc[label]
             results_row[(data_name, 'total')] += 1
 
@@ -50,3 +51,10 @@ if __name__ == '__main__':
     ax2.scatter(results_df.loc[:, ('train', 'total')], results_df.loc[:, ('test', 'acc')])
     ax2.set_title('Training examples vs Testing acc')
     fig1.show()
+
+    fig2, ax3 = plt.subplots()	
+    ax3.scatter(results_df.loc[:, ('train', 'total')], results_df.loc[:, ('test', 'total')])	
+    ax3.set_title('Training examples vs Testing examples')	
+    fig2.show()
+
+    plt.show()
