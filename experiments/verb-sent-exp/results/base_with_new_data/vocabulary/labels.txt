@@ -1,0 +1,69 @@
+weights, general
+bicycling
+other
+yoga
+running
+bench press
+walking
+aerobics
+bicep curl
+exercise class
+cardio
+squats
+dumbbells
+interval training
+abdominal crunches
+stair climbing
+sit ups
+jogging
+dead lifts
+bodyweight exercises, general
+elliptical machine
+push ups
+chest press
+hiking
+planking
+dancing
+swimming
+kickboxing
+pull ups
+stretching
+treadmill
+jumping rope
+lunges
+body weight exercises, general
+zumba
+jumping jacks
+rowing
+burpees
+martial arts
+basketball
+leg press
+crossfit
+power walking
+soccer
+tennis
+chin ups
+american football
+pilates
+leg raises
+golf
+housework
+rock climbing
+skiing
+boxing
+skipping
+badminton
+kayaking
+roller skating
+volleyball
+table tennis
+mountain climbers
+weight flies
+water aerobics
+cricket
+squash
+sports, general
+baseball
+leg curls
+ice skating

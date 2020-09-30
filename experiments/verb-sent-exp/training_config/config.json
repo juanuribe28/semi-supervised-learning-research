@@ -1,0 +1,43 @@
+{
+   "data_loader": {
+      "batch_size": 64,
+      "shuffle": true
+   },
+   "dataset_reader": {
+      "token_indexers": {
+         "tokens": {
+            "type": "single_id"
+         }
+      },
+      "tokenizer": {
+         "type": "whitespace"
+      },
+      "type": "tsv-reader"
+   },
+   "model": {
+      "embedder": {
+         "token_embedders": {
+            "tokens": {
+               "embedding_dim": 64,
+               "type": "embedding"
+            }
+         }
+      },
+      "encoder": {
+         "embedding_dim": 64,
+         "type": "boe"
+      },
+      "type": "simple_classifier"
+   },
+   "train_data_path": "./data/new_train_data.tsv",
+   "trainer": {
+      "cuda_device": -1,
+      "num_epochs": 100,
+      "optimizer": {
+         "lr": 0.001,
+         "type": "adamw"
+      },
+      "patience": 10
+   },
+   "validation_data_path": "./data/new_test_data.tsv"
+}
