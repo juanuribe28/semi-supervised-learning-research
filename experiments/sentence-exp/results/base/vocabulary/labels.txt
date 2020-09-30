@@ -7,8 +7,8 @@ Weights, general
 Yoga
 Squats
 Swimming
-Elliptical Machine
 Bench press
+Elliptical Machine
 Sit Ups
 Hiking
 Jumping Jacks
@@ -29,6 +29,7 @@ Dead lifts
 Exercise Class
 Dumbbells
 Interval Training
+Bodyweight exercises, general
 Rowing
 Lunges
 Dancing
@@ -36,13 +37,10 @@ Leg press
 Kickboxing
 Volleyball
 Jumping rope
-Chest press
 Stretching
-Bodyweight exercises, general
 Pilates
 Soccer
 Skipping
-Body weight exercises, general
 Crossfit
 Power walking
 Martial Arts
