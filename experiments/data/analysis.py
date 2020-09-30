@@ -50,8 +50,3 @@ if __name__ == '__main__':
     ax2.scatter(results_df.loc[:, ('train', 'total')], results_df.loc[:, ('test', 'acc')])
     ax2.set_title('Training examples vs Testing acc')
     fig1.show()
-    
-    fig2, ax3 = plt.subplots()
-    ax3.scatter(results_df.loc[:, ('train', 'total')], results_df.loc[:, ('test', 'total')])
-    ax3.set_title('Training examples vs Testing examples')
-    fig2.show()

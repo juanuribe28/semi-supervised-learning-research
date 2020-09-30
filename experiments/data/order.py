@@ -1,5 +1,7 @@
 from typing import Dict, Set, Tuple, List
 from copy import deepcopy
+
+import matplotlib.pyplot as plt
 import csv
 import sys
 
@@ -73,3 +75,12 @@ if __name__ == "__main__":
     train_data, test_data = divide_data(deepcopy(full_data), 600 / 3000)
     
     save_tsv_data([all_data, train_data, test_data], ['all', 'train', 'test'], exp_dir=exp_dir)
+
+    fig1, ax1 = plt.subplots()
+
+    n_train_examples = [len(example_set) for example_set in train_data.values()]
+    n_test_examples = [len(example_set) for example_set in test_data.values()]
+    ax1.scatter(n_train_examples, n_test_examples)
+    ax1.set_title('Training examples vs Testing examples')
+    fig1.show()
+    plt.show()
