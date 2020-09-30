@@ -45,7 +45,7 @@ def count_items(data_dict: DataDict) -> int:
 
 def save_tsv_data(datasets: List[DataDict], file_names: List[str], exp_dir: str = '') -> None:
     for dataset, file_name in zip(datasets, file_names):
-        with open('./{}new_{}_data.tsv'.format(exp_dir, file_name), 'w', newline='') as out_file:
+        with open('./{}new_{}_data.tsv'.format(exp_dir, file_name), 'w', newline='', encoding='utf8') as out_file:
             tsv_writer = csv.writer(out_file, delimiter='\t')
             for label, sent_set in dataset.items():
                 for sent in sent_set:
