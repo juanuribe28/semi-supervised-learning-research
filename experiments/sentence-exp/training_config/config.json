@@ -6,11 +6,13 @@
    "dataset_reader": {
       "token_indexers": {
          "tokens": {
-            "type": "single_id"
+            "model_name": "bert-base-uncased",
+            "type": "pretrained_transformer"
          }
       },
       "tokenizer": {
-         "type": "whitespace"
+         "model_name": "bert-base-uncased",
+         "type": "pretrained_transformer"
       },
       "type": "tsv-reader"
    },
@@ -18,14 +20,14 @@
       "embedder": {
          "token_embedders": {
             "tokens": {
-               "embedding_dim": 64,
-               "type": "embedding"
+               "model_name": "bert-base-uncased",
+               "type": "pretrained_transformer"
             }
          }
       },
       "encoder": {
-         "embedding_dim": 64,
-         "type": "boe"
+         "pretrained_model": "bert-base-uncased",
+         "type": "bert_pooler"
       },
       "type": "simple_classifier"
    },
