@@ -2,7 +2,6 @@ import json
 import csv
 import sys
 
-
 if __name__ == '__main__':
 
     if len(sys.argv) != 2:
@@ -26,4 +25,4 @@ if __name__ == '__main__':
                     label = 'Bench press'
                 elif label == 'Body weight exercises, general':
                     label = 'Bodyweight exercises, general'
-                tsv_writer.writerow([sent.replace(curly_apostrophe, "'"), label])
+                tsv_writer.writerow([sent.replace(curly_apostrophy, "'"), label])
