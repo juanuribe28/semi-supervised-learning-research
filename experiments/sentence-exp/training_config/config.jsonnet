@@ -15,13 +15,11 @@ local lr = 0.001;  // std.parseJson(std.extVar('lr'));
         type: 'tsv-reader',
         token_indexers: {
             tokens: {
-                type: "pretrained_transformer",
-                model_name: "bert-base-uncased",
+                type: 'single_id',
             },
         },
         tokenizer: {
-            type: "pretrained_transformer",
-            model_name: "bert-base-uncased",
+            type: "whitespace",
         },
     },
     model: {
@@ -29,14 +27,20 @@ local lr = 0.001;  // std.parseJson(std.extVar('lr'));
         embedder: {
             token_embedders: {
                 tokens: {
-                    type: "pretrained_transformer",
-                    model_name: "bert-base-uncased",
-                }
-            }
+                    type: 'embedding',
+                    embedding_dim: embedding_dim,
+                },
+            },
         },
         encoder: {
-            type: 'bert_pooler',
-            pretrained_model: "bert-base-uncased",
+            type: 'cnn',
+            embedding_dim: embedding_dim,
+            ngram_filter_sizes: [
+                2,
+                3,
+                4
+            ],
+            num_filters: 1
         },
     },
     train_data_path: train_data_path,
