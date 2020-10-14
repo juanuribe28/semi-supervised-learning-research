@@ -33,14 +33,10 @@ local lr = 0.001;  // std.parseJson(std.extVar('lr'));
             },
         },
         encoder: {
-            type: 'cnn',
-            embedding_dim: embedding_dim,
-            ngram_filter_sizes: [
-                2,
-                3,
-                4
-            ],
-            num_filters: 1
+            type: 'lstm',
+            hidden_size: 128,
+            input_size: 64,
+            num_layers: 1
         },
     },
     train_data_path: train_data_path,

@@ -24,14 +24,10 @@
          }
       },
       "encoder": {
-         "embedding_dim": 64,
-         "ngram_filter_sizes": [
-            2,
-            3,
-            4
-         ],
-         "num_filters": 1,
-         "type": "cnn"
+         "hidden_size": 128,
+         "input_size": 64,
+         "num_layers": 1,
+         "type": "lstm"
       },
       "type": "simple_classifier"
    },
