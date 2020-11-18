@@ -6,7 +6,7 @@ from pandas import DataFrame
 
 if __name__ == '__main__':
     
-    model_path = './results/base/model.tar.gz'
+    model_path = './results/sequential-5xLimit-big/model.tar.gz'
     predictor = Predictor.from_path(model_path, predictor_name='exercise_classifier')
 
     data_names = ['train', 'test']
@@ -20,8 +20,8 @@ if __name__ == '__main__':
                                      columns = columns)
     totals_df = pd.DataFrame(results_df.sum())
 
-    for data_name in data_names:
-        data_path = './data/new_{}_data.tsv'.format(data_name)
+    data_paths = ['./data/train_data_aug(seq-5x-big).tsv', './data/new_test_data.tsv']
+    for data_name, data_path in zip(data_names, data_paths):
         data_df = pd.read_csv(data_path, sep='\t', header=None)
         for _, data_row in data_df.iterrows():
             sent, label = [x for x in data_row]

@@ -37,12 +37,16 @@ def augment_data_dict(data_dict: DataDict, max_set_len: int, ratio: int = 1) -> 
 
 def augment_sentence(sentence: str) -> str:
     aug = aug_flow.Sequential([
+        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="insert"),
+        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="substitute"),
+        word_aug.ContextualWordEmbsAug(model_path='roberta-base', action="substitute"),
         word_aug.SynonymAug(aug_src='wordnet'),
         word_aug.RandomWordAug(action="swap"),
         word_aug.SpellingAug(),
-        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="insert"),
         # word_aug.BackTranslationAug(from_model_name='transformer.wmt19.en-de', 
         # to_model_name='transformer.wmt19.de-en'),
+        char_aug.KeyboardAug(),
+        char_aug.RandomCharAug(action='swap'),
     ])
     return aug.augment(sentence)
 
@@ -60,4 +64,4 @@ if __name__ == "__main__":
     data = order.update_examples_dict(path)
     max_len = get_max_set_len(data)
     augment_data_dict(data, max_len, 1.1)
-    save_as_tsv(data, './original_data/train_data_aug3.0.tsv')
+    save_as_tsv(data, './original_data/train_data_aug(seq-5x-big).tsv')
