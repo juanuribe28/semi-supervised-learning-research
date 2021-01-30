@@ -1,5 +1,17 @@
 # Semi-supervised learning research - Fall 2020
 
+## Install dependecies
+
+### For running the models
+
+Install [pytorch](https://pytorch.org/) and [allenlp](https://github.com/allenai/allennlp).
+
+For hyperparameter tunning install [optuna](https://github.com/optuna/optuna) and [optuna dashboard](https://github.com/optuna/optuna-dashboard)
+
+### For data augmentation
+
+Install [NLP AUG](https://github.com/makcedward/nlpaug).
+
 ## Allen NLP
 
 ### How to run experiments
