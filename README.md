@@ -1,5 +1,15 @@
 # Semi-supervised learning research - Fall 2020
 
+## Install dependecies
+
+### For running the models
+
+Install pytorch from [pytorch.org](https://pytorch.org/) and allenlp from their [github repo](https://github.com/allenai/allennlp)
+
+### For data augmentation
+
+Install NLP AUG from their [github repo](https://github.com/makcedward/nlpaug)
+
 ## Allen NLP
 
 ### How to run experiments
