@@ -4,11 +4,13 @@
 
 ### For running the models
 
-Install pytorch from [pytorch.org](https://pytorch.org/) and allenlp from their [github repo](https://github.com/allenai/allennlp)
+Install [pytorch](https://pytorch.org/) and [allenlp](https://github.com/allenai/allennlp).
+
+For hyperparameter tunning install [optuna](https://github.com/optuna/optuna) and [optuna dashboard](https://github.com/optuna/optuna-dashboard)
 
 ### For data augmentation
 
-Install NLP AUG from their [github repo](https://github.com/makcedward/nlpaug)
+Install [NLP AUG](https://github.com/makcedward/nlpaug).
 
 ## Allen NLP
 
