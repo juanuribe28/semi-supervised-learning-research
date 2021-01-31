@@ -1,0 +1,70 @@
+{
+    "dataset_reader": {
+        "type": "architecture.dataset_reader.TSVDatasetReader",
+        "sentence_token_indexers": {
+            "tokens": {
+                "type": "single_id"
+            }
+        },
+        "sentence_tokenizer": {
+            "type": "whitespace"
+        },
+        "verb_token_indexers": {
+            "tokens": {
+                "type": "single_id"
+            }
+        },
+        "verb_tokenizer": {
+            "type": "character"
+        }
+    },
+    "model": {
+        "type": "dual_simple_classifier",
+        "sentence_dropout": 0.6801047351722624,
+        "sentence_embedder": {
+            "token_embedders": {
+                "tokens": {
+                    "type": "embedding",
+                    "embedding_dim": 80
+                }
+            }
+        },
+        "sentence_encoder": {
+            "type": "boe",
+            "embedding_dim": 80
+        },
+        "verb_dropout": 0.806564325476373,
+        "verb_embedder": {
+            "token_embedders": {
+                "tokens": {
+                    "type": "embedding",
+                    "embedding_dim": 199
+                }
+            }
+        },
+        "verb_encoder": {
+            "type": "boe",
+            "embedding_dim": 199
+        }
+    },
+    "train_data_path": "./data/train_data.tsv",
+    "validation_data_path": "./data/test_data.tsv",
+    "trainer": {
+        "callbacks": [
+            {
+                "type": "optuna_pruner"
+            }
+        ],
+        "cuda_device": 0,
+        "num_epochs": 100,
+        "optimizer": {
+            "type": "adamw",
+            "lr": 0.0005799328708064756
+        },
+        "patience": 10
+    },
+    "data_loader": {
+        "batch_size": 64,
+        "shuffle": true
+    }
+}

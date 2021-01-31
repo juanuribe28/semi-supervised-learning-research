@@ -50,16 +50,16 @@
     "train_data_path": "./data/train_data.tsv",
     "validation_data_path": "./data/test_data.tsv",
     "trainer": {
-        "cuda_device": -1,
-        "epoch_callbacks": [
+        "callbacks": [
             {
                 "type": "optuna_pruner"
             }
         ],
+        "cuda_device": 0,
         "num_epochs": 100,
         "optimizer": {
             "type": "adamw",
-            "lr": 0.09625448324415481
+            "lr": 0.009625448324415479
         },
         "patience": 10
     },
