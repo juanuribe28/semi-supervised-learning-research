@@ -33,9 +33,9 @@ class Net(Model):
         self.s_dropout = torch.nn.Dropout(sentence_dropout)
         self.v_dropout = torch.nn.Dropout(verb_dropout)
 
-        self.merge = torch.nn.Bilinear(in1_features = num_labels,
-                                       in2_features = num_labels,
-                                       out_features = num_labels)
+        # self.merge = torch.nn.Bilinear(in1_features = num_labels,
+        #                                in2_features = num_labels,
+        #                                out_features = num_labels)
 
         self.accuracy = CategoricalAccuracy()
         self.loss = torch.nn.CrossEntropyLoss()
@@ -63,7 +63,7 @@ class Net(Model):
         v_logits = self.v_linear(v_encoded_text)
 
         # Shape: (batch_size, num_labels)
-        logits = self.merge(s_logits, v_logits)
+        logits = s_logits * v_logits # self.merge(s_logits, v_logits)
 
         probs = torch.nn.functional.softmax(logits, dim=-1)
         output = {'s_logits':s_logits, 'v_logits':v_logits, 'logits':logits, 'probs':probs}
