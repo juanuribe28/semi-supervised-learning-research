@@ -15,12 +15,14 @@ class Net(Model):
     def __init__(self, 
                  vocab: Vocabulary, 
                  embedder: TextFieldEmbedder, 
-                 encoder: Seq2VecEncoder) -> None:
+                 encoder: Seq2VecEncoder,
+                 dropout: float = 0) -> None:
         super().__init__(vocab)
         self.embedder = embedder
         self.encoder = encoder
         num_labels = vocab.get_vocab_size("labels")
         self.linear = torch.nn.Linear(in_features = encoder.get_output_dim(), out_features = num_labels)
+        self.dropout = torch.nn.Dropout(dropout)
 
         self.accuracy = CategoricalAccuracy()
         self.loss = torch.nn.CrossEntropyLoss()
@@ -29,11 +31,11 @@ class Net(Model):
                 text: Dict[str, torch.Tensor], 
                 label: torch.Tensor = None) -> Dict[str, torch.Tensor]:
         # Shape: (batch_size, num_tokens, embedding_dim)
-        embedded_text = self.embedder(text)
+        embedded_text = self.dropout(self.embedder(text))
         # Shape: (batch_size, num_tokens)
         mask = get_text_field_mask(text)
         # Shape: (batch_size, encoding_dim)
-        encoded_text = self.encoder(embedded_text, mask)
+        encoded_text = self.dropout(self.encoder(embedded_text, mask))
         # Shape: (batch_size, num_labels)
         logits = self.linear(encoded_text)
         # Shape: (batch_size, num_labels)
