@@ -127,16 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-experiments/first-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_13.th
-experiments/first-exp/results/embedder/word-tokens/elmo_characters/best.th
+
+# Model states
+**/*.th
+!**/best.th
+
+# Big files
 experiments/first-exp/results/embedder/word-tokens/elmo_characters/model.tar.gz
-experiments/first-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_14.th
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_9.th
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_9.th
 experiments/first-exp/results/embedder/wordpiece-tokens/bert/best.th
 experiments/first-exp/results/embedder/wordpiece-tokens/bert/model.tar.gz
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_10.th
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_10.th
 ./.git/objects/13/948a13091bf00874df34dfd8bdf362b1efdd18
 ./.git/objects/2c/3533d28e057e16bb47e17e6013ebea897c8e8b
 ./.git/objects/2e/15e95dd50ea4c091ff20833b4fc2fc9951990d
@@ -151,21 +150,9 @@ experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoc
 ./.git/objects/e5/51718dc2f7cc42e29eaf8c26fd5d4e3ab4390e
 ./experiments/sentence-exp/results/embedder/word-tokens/elmo_characters/best.th
 ./experiments/sentence-exp/results/embedder/word-tokens/elmo_characters/model.tar.gz
-./experiments/sentence-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_17.th
-./experiments/sentence-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_18.th
-experiments/sentence-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_11.th
-experiments/sentence-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_12.th
-experiments/sentence-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_12.th
 experiments/sentence-exp/results/embedder/wordpiece-tokens/bert/best.th
 experiments/sentence-exp/results/embedder/wordpiece-tokens/bert/model.tar.gz
-experiments/sentence-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_11.th
-experiments/first-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_13.th
 experiments/first-exp/results/embedder/word-tokens/elmo_characters/best.th
 experiments/first-exp/results/embedder/word-tokens/elmo_characters/model.tar.gz
-experiments/first-exp/results/embedder/word-tokens/elmo_characters/model_state_epoch_14.th
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_9.th
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_9.th
 experiments/first-exp/results/embedder/wordpiece-tokens/bert/best.th
 experiments/first-exp/results/embedder/wordpiece-tokens/bert/model.tar.gz
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/model_state_epoch_10.th
-experiments/first-exp/results/embedder/wordpiece-tokens/bert/training_state_epoch_10.th
