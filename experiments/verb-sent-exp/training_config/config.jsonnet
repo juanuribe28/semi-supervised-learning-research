@@ -1,25 +1,27 @@
-local cuda_device = -1;
+local cuda_device = 0;
 local num_epochs = 100;
 local patience = 10;
 local batch_size = 64;
 local shuffle_data = true;
-local train_data_path = './data/new_train_data.tsv';
-local validation_data_path = './data/new_test_data.tsv';
+local train_data_path = './data/train_data.tsv';
+local validation_data_path = './data/test_data.tsv';
 
 // Hyperparameters
-local embedding_dim = 64;  // std.parseInt(std.extVar('embedding_dim'))
-local lr = 0.001;  // std.parseJson(std.extVar('lr'));
+local embedding_dim = std.parseInt(std.extVar('embedding_dim')); // 64
+local lr = std.parseJson(std.extVar('lr')); // 0.01
+local dropout = std.parseJson(std.extVar('lr')); // 0
 
 {
     dataset_reader: {
-        type: 'tsv-reader',
+        type: 'architecture.dataset_reader.TSVDatasetReader',
         token_indexers: {
             tokens: {
                 type: 'single_id',
             },
         },
         tokenizer: {
-            type: 'whitespace',
+            type: "pretrained_transformer",
+            model_name: "bert-base-uncased"
         },
     },
     model: {
