@@ -1,4 +1,4 @@
-local cuda_device = -1;
+local cuda_device = 0;
 local num_epochs = 100;
 local patience = 10;
 local batch_size = 64;
@@ -34,10 +34,12 @@ local lr = std.parseJson(std.extVar('lr'));
             },
         },
         sentence_tokenizer: {
-            type: 'whitespace',
+            type: "pretrained_transformer",
+            model_name: "bert-base-uncased"
         },
         verb_tokenizer: {
-            type: 'character',
+            type: "pretrained_transformer",
+            model_name: "bert-base-uncased"
         },
     },
     model: {
@@ -79,7 +81,7 @@ local lr = std.parseJson(std.extVar('lr'));
             lr: lr,
         },
         patience: patience,
-        epoch_callbacks: [
+        callbacks: [
             {
                 type: 'optuna_pruner',
             },
