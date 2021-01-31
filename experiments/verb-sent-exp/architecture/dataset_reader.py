@@ -30,5 +30,5 @@ class TSVDatasetReader(DatasetReader):
     def _read(self, file_path: str) -> Iterator[Instance]:
         with open(file_path, 'r') as lines:
             for line in lines:
-                sent, label = line.lower().replace('\n', '').split('\t')
+                _, sent, label = line.lower().replace('\n', '').split('\t')
                 yield self.text_to_instance(sent, label)
