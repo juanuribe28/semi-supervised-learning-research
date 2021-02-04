@@ -8,22 +8,22 @@ import random
 import os
 import csv
 from tqdm import tqdm
+from typing import Dict, Set, Tuple, List
 
 from nlpaug.util import Action
-from original_data.order import DataDict
-from original_data import order
-
 from copy import deepcopy
 
+DataDict = Dict[str, Set[str]]
 
-def get_paths() -> str:
-    if len(sys.argv) != 2:
-        raise Exception('Missing experiment directory name')
-    exp_dir = sys.argv[1]
-
-    if exp_dir[-1] != '/':
-        exp_dir = '{}/'.format(exp_dir)
-    return exp_dir
+def update_examples_dict(data_path: str, data_dict: DataDict = dict()) -> DataDict:
+    with open(data_path) as lines:
+        for line in lines:
+            sentence, verb, label = line.replace('\n', '').split('\t')
+            if label in data_dict:
+                data_dict[label].add((sentence))
+            else:
+                data_dict[label] = set([sentence])
+    return data_dict
 
 def get_max_set_len(data_dict: DataDict) -> int:
     return max(map(len, data_dict.values()))
@@ -32,21 +32,13 @@ def augment_data_dict(data_dict: DataDict, max_set_len: int, ratio: int = 1) -> 
     new_len = round(max_set_len * ratio)
     for label, dataset in tqdm(data_dict.items()):
         original_dataset = list(deepcopy(dataset))
-        while len(dataset) < min(new_len, len(original_dataset) * 5):
+        while len(dataset) < min(new_len, len(original_dataset) * 2):
             dataset.add(augment_sentence(random.choice(original_dataset)))
 
 def augment_sentence(sentence: str) -> str:
     aug = aug_flow.Sequential([
-        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="insert"),
-        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="substitute"),
-        word_aug.ContextualWordEmbsAug(model_path='roberta-base', action="substitute"),
-        word_aug.SynonymAug(aug_src='wordnet'),
-        word_aug.RandomWordAug(action="swap"),
+        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="substitute", device="cuda"),
         word_aug.SpellingAug(),
-        # word_aug.BackTranslationAug(from_model_name='transformer.wmt19.en-de', 
-        # to_model_name='transformer.wmt19.de-en'),
-        char_aug.KeyboardAug(),
-        char_aug.RandomCharAug(action='swap'),
     ])
     return aug.augment(sentence)
 
@@ -59,9 +51,9 @@ def save_as_tsv(dataset: DataDict, path: str) -> None:
     return
 
 if __name__ == "__main__":
-    path = './original_data/new_train_data.tsv'
+    path = './data/train_data.tsv'
 
-    data = order.update_examples_dict(path)
+    data = update_examples_dict(path)
     max_len = get_max_set_len(data)
     augment_data_dict(data, max_len, 1.1)
-    save_as_tsv(data, './original_data/train_data_aug(seq-5x-big).tsv')
+    save_as_tsv(data, './data/aug_train_data2.tsv')
