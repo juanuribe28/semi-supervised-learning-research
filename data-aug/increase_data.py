@@ -32,13 +32,16 @@ def augment_data_dict(data_dict: DataDict, max_set_len: int, ratio: int = 1) -> 
     new_len = round(max_set_len * ratio)
     for label, dataset in tqdm(data_dict.items()):
         original_dataset = list(deepcopy(dataset))
-        while len(dataset) < min(new_len, len(original_dataset) * 2):
+        while len(dataset) < min(new_len, len(original_dataset) * 1.5):
             dataset.add(augment_sentence(random.choice(original_dataset)))
 
 def augment_sentence(sentence: str) -> str:
     aug = aug_flow.Sequential([
-        word_aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="substitute", device="cuda"),
-        word_aug.SpellingAug(),
+       word_aug.ContextualWordEmbsAug(model_path='xlnet-base-cased', action="substitute", device="cuda"),
+       word_aug.ContextualWordEmbsAug(model_path='xlnet-base-cased', action="insert", device="cuda"),
+       word_aug.RandomWordAug(action="swap"),
+       word_aug.SpellingAug(),
+       char_aug.KeyboardAug(),
     ])
     return aug.augment(sentence)
 
@@ -56,4 +59,4 @@ if __name__ == "__main__":
     data = update_examples_dict(path)
     max_len = get_max_set_len(data)
     augment_data_dict(data, max_len, 1.1)
-    save_as_tsv(data, './data/aug_train_data2.tsv')
+    save_as_tsv(data, './data/aug_train_data7.tsv')
