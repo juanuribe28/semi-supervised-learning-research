@@ -1,4 +1,6 @@
-# Semi-supervised learning research - Fall 2020
+# Semi-supervised learning research - Fall 2020 * Spring 2021
+
+The preliminary results were presented at LMU's Undergraduate Research Symposium 2021 and This is Honors, under the title *Mapping of exercise logs to a database using Neural Networks and data augmentation techniques*. The full presentation can be found [here](https://lmu.box.com/s/glgdich15m41jx53cvpk1wdfn2cv1cq9).
 
 ## Install dependecies
 
