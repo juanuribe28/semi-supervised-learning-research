@@ -8,7 +8,7 @@ def objective(trial: optuna.Trial) -> float:
     executor = optuna.integration.allennlp.AllenNLPExecutor(
         trial=trial,
         config_file="./training_config/config.jsonnet",  # path to jsonnet
-        serialization_dir=f"./results/optuna/{trial.number}",
+        serialization_dir=f"./results/optuna_aug1/{trial.number}",
         metrics="best_validation_accuracy"
     )
     return executor.run()
@@ -17,7 +17,7 @@ if __name__ == '__main__':
     study = optuna.create_study(
         storage="sqlite:////home/juan/Research/research-f2020/experiments/hyperparam-optim.db",  # save results in DB
         sampler=optuna.samplers.TPESampler(seed=24),
-        study_name="verb-exp0",
+        study_name="verb-exp_aug1",
         direction="maximize",
         pruner=optuna.pruners.HyperbandPruner()
     )

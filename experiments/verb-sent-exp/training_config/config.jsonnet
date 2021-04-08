@@ -3,7 +3,7 @@ local num_epochs = 100;
 local patience = 10;
 local batch_size = 64;
 local shuffle_data = true;
-local train_data_path = './data/train_data.tsv';
+local train_data_path = './data/aug_train_data5.tsv';
 local validation_data_path = './data/test_data.tsv';
 
 // Hyperparameters
