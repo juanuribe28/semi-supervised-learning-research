@@ -15,7 +15,9 @@ if __name__ == '__main__':
         print('analyze_aug_results.py <output file name> [top-k value = 1]')
         sys.exit(2)
 
-    model_path = './results/optuna_aug2/65/model.tar.gz'
+    exp_name = 'sentence-exp'
+
+    model_path = f'.{exp_name}/results/optuna_aug2/65/model.tar.gz'
     data_paths = { 'train' : './data/train_data.tsv', 
                    'test'  : './data/test_data.tsv'}
 

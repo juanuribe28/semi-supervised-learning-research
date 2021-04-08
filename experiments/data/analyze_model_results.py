@@ -6,7 +6,9 @@ from pandas import DataFrame
 
 if __name__ == '__main__':
     
-    model_path = './results/base/model.tar.gz'
+    exp_name = 'sentence-exp'
+
+    model_path = f'.{exp_name}/results/optuna_aug2/65/model.tar.gz'
     predictor = Predictor.from_path(model_path, predictor_name='exercise_classifier')
 
     data_names = ['train', 'test']
@@ -20,8 +22,8 @@ if __name__ == '__main__':
                                      columns = columns)
     totals_df = pd.DataFrame(results_df.sum())
 
-    for data_name in data_names:
-        data_path = './data/new_{}_data.tsv'.format(data_name)
+    data_paths = ['./data/aug_train_data1.tsv', './data/test_data.tsv']
+    for data_name, data_path in zip(data_names, data_paths):
         data_df = pd.read_csv(data_path, sep='\t', header=None)
         for _, data_row in data_df.iterrows():
             sent, label = [x for x in data_row]
