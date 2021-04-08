@@ -6,7 +6,7 @@
 
 Install [pytorch](https://pytorch.org/) and [allenlp](https://github.com/allenai/allennlp).
 
-For hyperparameter tunning install [optuna](https://github.com/optuna/optuna) and [optuna dashboard](https://github.com/optuna/optuna-dashboard)
+For hyperparameter tunning install [optuna](https://github.com/optuna/optuna) and [optuna dashboard](https://github.com/optuna/optuna-dashboard).
 
 ### For data augmentation
 
