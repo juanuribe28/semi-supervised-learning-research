@@ -9,7 +9,6 @@
 Template repo for an experiment with AllenNLP (Note that most files in this directory are empty, and are just meant to show the general structure. For working examples refer to actual experiment directories). It contains:
 
 - **.allennlp_plugins:** necessary file to run allennlp models. Contains the path to the model. No need to modify.
-- **data:** 
 - **architecture:** Contains the allennlp modeland related classes.
     - **dataset_reader.py:** Reads and loads the data do be used by the model. A DatasetReader class.
     - **model.py:** The actual AllenNLP model. A Model class.
@@ -17,9 +16,16 @@ Template repo for an experiment with AllenNLP (Note that most files in this dire
 - **training_config:** Contains the jsonnet file with the specific configuration for the model.
 - **results:** Output directory for all the test results.
 
+### Old experiment directories
 
-### [sentence-exp](sentence-exp)
+There's a specific directory for each type of model. Recommended only to review previous results, not to update or to work with. Instead use new universal model experiment.
 
-### [verb-sent-exp](verb-sent-exp)
+#### [sentence-exp](sentence-exp)
 
-### [verb-sentence-exp](verb-sentence-exp)
+#### [verb-sent-exp](verb-sent-exp)
+
+#### [verb-sentence-exp](verb-sentence-exp)
+
+### New unversal model
+
+#### [universal-exp](universal-exp)
