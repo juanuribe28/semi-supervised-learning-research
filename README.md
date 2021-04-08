@@ -41,3 +41,10 @@ Run file containing optuna code: `python hyperparamet_optim.py`
 ### How to vizualize the optimization
 
 `optuna-dashboard sqlite:[path-to-.db-file]`
+
+## Repo Structure
+
+### [experiments](experiments)
+
+All the data, models and results are within this directory. For more information read the particular [README](experiments/README.md) for this directory.
+
