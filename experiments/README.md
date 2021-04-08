@@ -4,8 +4,6 @@
 
 ### [data](data)
 
-### [sentence-aug](sentence-aug)
-
 ### [sentence-exp](sentence-exp)
 
 ### [verb-sent-exp](verb-sent-exp)
