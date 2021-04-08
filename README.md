@@ -36,7 +36,7 @@ Install [NLP AUG](https://github.com/makcedward/nlpaug), and related libraries (
 
 ### How to run the optimization 
 
-Run file containing optuna code: `python hyperparamet_optim.py`
+Run file containing optuna code: `python hyperparam_optim.py`
 
 ### How to vizualize the optimization
 
