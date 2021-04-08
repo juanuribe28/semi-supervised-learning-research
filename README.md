@@ -38,6 +38,6 @@ Install [NLP AUG](https://github.com/makcedward/nlpaug), and related libraries (
 
 Run file containing optuna code: `python hyperparamet_optim.py`
 
-## How to vizualize the optimization
+### How to vizualize the optimization
 
 `optuna-dashboard sqlite:[path-to-.db-file]`
