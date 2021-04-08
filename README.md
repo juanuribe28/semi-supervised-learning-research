@@ -10,9 +10,9 @@ For hyperparameter tunning install [optuna](https://github.com/optuna/optuna) an
 
 ### For data augmentation
 
-Install [NLP AUG](https://github.com/makcedward/nlpaug).
+Install [NLP AUG](https://github.com/makcedward/nlpaug), and related libraries (They can be found at the same github repo).
 
-## Allen NLP
+## Train models with Allen NLP
 
 ### How to run experiments
 
@@ -22,12 +22,22 @@ Install [NLP AUG](https://github.com/makcedward/nlpaug).
 
 `allennlp predict [model_dir]/model.tar.gz [data_file_path].json --predictor [predictor_registered_name]`
 
-## TensorBoard
+## Visualize the results with TensorBoard
 
-### How to show results in tensorboard
+### How to show results locally
 
 `tensorboard --logdir=[log_dir]`
 
 ### How to upload results
 
-` tensorboard dev upload --logdir=[log_dir]`
+`tensorboard dev upload --logdir=[log_dir]`
+
+## Perform hyperparameter optimization with Optuna
+
+### How to run the optimization 
+
+Run file containing optuna code: `python hyperparamet_optim.py`
+
+## How to vizualize the optimization
+
+`optuna-dashboard sqlite:[path-to-.db-file]`
