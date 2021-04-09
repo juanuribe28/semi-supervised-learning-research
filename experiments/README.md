@@ -29,7 +29,7 @@ There's a specific directory for each type of model. Recommended only to review 
 
 Contains model and results using the sentence as input.
 
-### [verb-sent-exp](verb-sent-exp)
+### [verb-exp](verb-exp)
 
 Contains model and results using only the tagged excercise as input.
 
@@ -37,7 +37,7 @@ Contains model and results using only the tagged excercise as input.
 
 Contains model and results using both the full sentence and the tagged exercise as input.
 
-## New unversal model
+## New universal model
 
 ### [universal-exp](universal-exp)
 
