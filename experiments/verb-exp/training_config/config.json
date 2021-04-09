@@ -24,10 +24,8 @@
          }
       },
       "encoder": {
-         "hidden_size": 128,
-         "input_size": 64,
-         "num_layers": 1,
-         "type": "lstm"
+         "embedding_dim": 64,
+         "type": "boe"
       },
       "type": "simple_classifier"
    },
