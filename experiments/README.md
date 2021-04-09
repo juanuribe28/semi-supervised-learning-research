@@ -1,4 +1,4 @@
-## experiments directory structure
+# experiments directory structure
 
 **hyperparam-optim.db** contains all the relevant information from the different hyperparameter optimization tests with optuna (Recommended to open with optuna dashboard for optimal visualization).
 
@@ -18,24 +18,24 @@ Template repo for an experiment with AllenNLP (Note that most files in this dire
 - **training_config:** Contains the jsonnet file with the specific configuration for the model.
 - **results:** Output directory for all the test results.
 
-### Old experiment directories
+## Old experiment directories
 
 There's a specific directory for each type of model. Recommended only to review previous results, not to update or to work with. Instead use new universal model experiment.
 
-#### [sentence-exp](sentence-exp)
+### [sentence-exp](sentence-exp)
 
 Contains model and results using the sentence as input.
 
-#### [verb-sent-exp](verb-sent-exp)
+### [verb-sent-exp](verb-sent-exp)
 
 Contains model and results using only the tagged excercise as input.
 
-#### [verb-sentence-exp](verb-sentence-exp)
+### [verb-sentence-exp](verb-sentence-exp)
 
 Contains model and results using both the full sentence and the tagged exercise as input.
 
-### New unversal model
+## New unversal model
 
-#### [universal-exp](universal-exp)
+### [universal-exp](universal-exp)
 
 Contains model for using both the full sentece and/or the tagged exercise as input. Instead of having to use a specific model for different types of inputs as in previous experiments, this model allows to set up the weight of each input as a hyperparameter.
