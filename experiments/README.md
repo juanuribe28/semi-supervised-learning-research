@@ -1,6 +1,9 @@
 # experiments directory structure
 
-**hyperparam-optim.db** contains all the relevant information from the different hyperparameter optimization tests with optuna (Recommended to open with optuna dashboard for optimal visualization).
+## Hyperparameter optimizer
+
+-**hyperparam-optim.py:** Python code used to run Optuna optimizer on a specific model.
+-**hyperparam-optim.db:** Contains all the relevant information from the different hyperparameter optimization tests with optuna (Recommended to open with optuna dashboard for optimal visualization).
 
 ### [data](data)
 
