@@ -25,4 +25,4 @@ if __name__ == '__main__':
                     label = 'Bench press'
                 elif label == 'Body weight exercises, general':
                     label = 'Bodyweight exercises, general'
-                tsv_writer.writerow([sent.replace(curly_apostrophy, "'"), label])
+                tsv_writer.writerow([sent.replace(curly_apostrophe, "'"), label])
