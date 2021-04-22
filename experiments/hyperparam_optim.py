@@ -1,7 +1,7 @@
 import optuna
 
-exp_dir = 'sentence-exp'
-test_num = 8
+exp_dir = 'universal-exp'
+test_num = 15
 output_db_path = 'sqlite:////home/juan/Research/research-f2020/experiments/test.db'
 
 def objective(trial: optuna.Trial) -> float:
@@ -20,8 +20,9 @@ def objective(trial: optuna.Trial) -> float:
     executor = optuna.integration.allennlp.AllenNLPExecutor(
         trial=trial,
         config_file=f"./{exp_dir}/training_config/config.jsonnet",  # path to jsonnet
-        serialization_dir=f"./{exp_dir}/results/optuna{test_num}/{trial.number}",
-        metrics="best_validation_accuracy"
+        serialization_dir=f"./{exp_dir}/results/optuna/test-{test_num}/{trial.number}",
+        metrics="best_validation_accuracy",
+        include_package=f'{exp_dir}.architecture'
     )
     return executor.run()
 
@@ -29,7 +30,7 @@ if __name__ == '__main__':
     study = optuna.create_study(
         storage=output_db_path,  # save results in DB
         sampler=optuna.samplers.TPESampler(seed=24),
-        study_name=f"{exp_dir}-exp{test_num}",
+        study_name=f"{exp_dir}{test_num}",
         direction="maximize",
         pruner=optuna.pruners.HyperbandPruner()
     )
@@ -50,9 +51,3 @@ if __name__ == '__main__':
     print("  Params: ")
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
-
-    dump_best_config(CONFIG_PATH, BEST_CONFIG_PATH, study)
-    print("\nCreated optimized AllenNLP config to `{}`.".format(BEST_CONFIG_PATH))
-
-    shutil.rmtree(MODEL_DIR)
-
