@@ -6,14 +6,16 @@ local shuffle_data = true;
 local train_data_path = '../data/train_data.tsv';
 local validation_data_path = '../data/test_data.tsv';
 
-// Hyperparameters
-local embedding_dim = 64; 
-local dropout = 0.8;
-local s_embedding_dim = std.parseInt(std.extVar('s_embedding_dim'));
-local s_dropout = std.parseJson(std.extVar('s_dropout'));
-local v_embedding_dim = std.parseInt(std.extVar('v_embedding_dim'));
-local v_dropout = std.parseJson(std.extVar('v_dropout'));
+// Var Hyperparameters
+local s_weight = std.parseJson(std.extVar('s_weight'));
+local s_embedding_dim = if s_weight == 0 then 64 else std.parseInt(std.extVar('s_embedding_dim'));
+local s_dropout = if s_weight == 0 then 0 else std.parseJson(std.extVar('s_dropout'));
+local v_embedding_dim = if s_weight == 1 then 64 else std.parseInt(std.extVar('v_embedding_dim'));
+local v_dropout = if s_weight == 1 then 0 else std.parseJson(std.extVar('v_dropout'));
 local lr = std.parseJson(std.extVar('lr'));
+
+// Default Hyperparameters
+// local s_weight = 0.5;
 // local s_embedding_dim = 64;
 // local s_dropout = 0.8;
 // local v_embedding_dim = 64;
@@ -43,7 +45,7 @@ local lr = std.parseJson(std.extVar('lr'));
         },
     },
     model: {
-        type: 'dual_simple_classifier',
+        type: 'universal_dual_classifier',
         sentence_embedder: {
             token_embedders: {
                 tokens: {
@@ -68,6 +70,7 @@ local lr = std.parseJson(std.extVar('lr'));
             type: 'boe',
             embedding_dim: v_embedding_dim,
         },
+        sentence_weight: s_weight,
         sentence_dropout: s_dropout,
         verb_dropout: v_dropout,
     },
