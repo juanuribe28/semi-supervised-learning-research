@@ -10,34 +10,37 @@
          }
       },
       "sentence_tokenizer": {
-         "type": "whitespace"
+         "model_name": "bert-base-uncased",
+         "type": "pretrained_transformer"
       },
-      "type": "tsv-reader",
+      "type": "architecture.dataset_reader.TSVDatasetReader",
       "verb_token_indexers": {
          "tokens": {
             "type": "single_id"
          }
       },
       "verb_tokenizer": {
-         "type": "character"
+         "model_name": "bert-base-uncased",
+         "type": "pretrained_transformer"
       }
    },
    "model": {
-      "sentence_dropout": 0.5,
+      "sentence_dropout": 0.80000000000000004,
       "sentence_embedder": {
          "token_embedders": {
             "tokens": {
-               "embedding_dim": 64,
+               "embedding_dim": 128,
                "type": "embedding"
             }
          }
       },
       "sentence_encoder": {
-         "embedding_dim": 64,
+         "embedding_dim": 128,
          "type": "boe"
       },
-      "type": "dual_simple_classifier",
-      "verb_dropout": 0.5,
+      "sentence_weight": 1,
+      "type": "universal_dual_classifier",
+      "verb_dropout": 0,
       "verb_embedder": {
          "token_embedders": {
             "tokens": {
@@ -53,10 +56,10 @@
    },
    "train_data_path": "../data/train_data.tsv",
    "trainer": {
-      "cuda_device": -1,
+      "cuda_device": 0,
       "num_epochs": 100,
       "optimizer": {
-         "lr": 0.001,
+         "lr": 0.01,
          "type": "adamw"
       },
       "patience": 10
