@@ -2,8 +2,8 @@
 
 ## Hyperparameter optimizer
 
--**hyperparam-optim.py:** Python code used to run Optuna optimizer on a specific model.
--**hyperparam-optim.db:** Contains all the relevant information from the different hyperparameter optimization tests with optuna (Recommended to open with optuna dashboard for optimal visualization). For the specific dataset used in each experiment refer to the data augmentation section on the data [README](data/README.md).
+- **hyperparam-optim.py:** Python code used to run Optuna optimizer on a specific model.
+- **hyperparam-optim.db:** Contains all the relevant information from the different hyperparameter optimization tests with optuna (Recommended to open with optuna dashboard for optimal visualization). For the specific dataset used in each experiment refer to the data augmentation section on the data [README](data/README.md).
 
 ### [data](data)
 
