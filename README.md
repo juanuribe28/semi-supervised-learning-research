@@ -16,9 +16,13 @@ Install [NLP AUG](https://github.com/makcedward/nlpaug), and related libraries (
 
 ## Train models with Allen NLP
 
+### How to convert jsonnet files into json
+
+`jsonnet [cofig_file] -o [output_file]`
+
 ### How to run experiments
 
-`allennlp train [config_file_path] -s [results-dir]`
+`allennlp train [config_file] -s [results-dir]`
 
 ### How to use the models
 
