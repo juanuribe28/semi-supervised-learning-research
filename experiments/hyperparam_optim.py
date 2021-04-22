@@ -1,8 +1,8 @@
 import optuna
 
 exp_dir = 'universal-exp'
-test_num = 15
-output_db_path = 'sqlite:////home/juan/Research/research-f2020/experiments/test.db'
+test_num = 0
+output_db_path = 'sqlite:////home/juan/Research/research-f2020/experiments/hyperparam-optim.db'
 
 def objective(trial: optuna.Trial) -> float:
     s_weight = trial.suggest_float('s_weight', 0, 1)
