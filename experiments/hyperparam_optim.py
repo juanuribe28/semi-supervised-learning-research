@@ -2,13 +2,19 @@ import optuna
 
 exp_dir = 'sentence-exp'
 test_num = 8
-output_db_path = 'sqlite:////home/juan/Research/research-f2020/experiments/hyperparam-optim.db'
+output_db_path = 'sqlite:////home/juan/Research/research-f2020/experiments/test.db'
 
 def objective(trial: optuna.Trial) -> float:
-    trial.suggest_int('s_embedding_dim', 16, 512)
-    trial.suggest_int('v_embedding_dim', 16, 512)
-    trial.suggest_float('s_dropout', 0.0, 0.9)
-    trial.suggest_float('v_dropout', 0.0, 0.9)
+    s_weight = trial.suggest_float('s_weight', 0, 1)
+
+    if s_weight != 0:
+        trial.suggest_int('s_embedding_dim', 16, 512)
+        trial.suggest_float('s_dropout', 0.0, 0.9)
+    
+    if s_weight != 1:
+        trial.suggest_int('v_embedding_dim', 16, 512)
+        trial.suggest_float('v_dropout', 0.0, 0.9)
+
     trial.suggest_float('lr', 5e-4, 5e-2, log=True)
     
     executor = optuna.integration.allennlp.AllenNLPExecutor(
@@ -35,4 +41,18 @@ if __name__ == '__main__':
         n_trials=100,  # number of trials to train a model
         timeout=timeout,  # threshold for executing time (sec)
     )
+
+    print("Number of finished trials: ", len(study.trials))
+    print("Best trial:")
+    trial = study.best_trial
+
+    print("  Value: ", trial.value)
+    print("  Params: ")
+    for key, value in trial.params.items():
+        print("    {}: {}".format(key, value))
+
+    dump_best_config(CONFIG_PATH, BEST_CONFIG_PATH, study)
+    print("\nCreated optimized AllenNLP config to `{}`.".format(BEST_CONFIG_PATH))
+
+    shutil.rmtree(MODEL_DIR)
 
